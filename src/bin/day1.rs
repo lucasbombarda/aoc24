@@ -1,6 +1,5 @@
 mod utils;
 
-use core::str;
 use std::collections::HashMap;
 
 use utils::file::read_content;
