@@ -14,8 +14,8 @@ fn part_one(content: &str) -> usize {
             first_col.push(first.parse().unwrap());
             second_col.push(second.parse().unwrap());
         }
-
     }
+
     first_col.sort();
     second_col.sort();
 
