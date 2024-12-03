@@ -15,9 +15,9 @@ fn part_one(content: &str) -> usize {
             second_col.push(second.parse().unwrap());
         }
 
-        first_col.sort();
-        second_col.sort();
     }
+    first_col.sort();
+    second_col.sort();
 
     for i in 0..first_col.len() {
         let diff = if first_col[i] > second_col[i] {
