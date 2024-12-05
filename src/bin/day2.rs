@@ -41,10 +41,9 @@ fn check(nums: &Vec<isize>) -> isize {
         }
     }
     if is_valid {
-        1
-    } else {
-        0
+        return 1;
     }
+    0
 }
 
 fn check_two(nums: &Vec<isize>) -> isize {
@@ -65,7 +64,7 @@ fn check_two(nums: &Vec<isize>) -> isize {
             return 1;
         }
     }
-    return 0;
+    0
 }
 
 fn part_one(content: &str) -> isize {
