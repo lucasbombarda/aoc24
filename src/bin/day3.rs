@@ -15,7 +15,30 @@ fn part_one(content: &str) -> i32 {
 }
 
 fn part_two(content: &str) -> usize {
-    0
+    let pattern_dont = Regex::new(r"don't\(\)").unwrap();
+    let pattern_do = Regex::new(r"do\(\)").unwrap();
+    let pattern_mult = Regex::new(r"mul\((\d{1,3}),(\d{1,3})\)").unwrap();
+
+    let mut doing = true;
+    let mut result = 0;
+
+    let commands = Regex::new(r"do\(\)|don't\(\)|mul\(\d{1,3},\d{1,3}\)").unwrap();
+
+    for command in commands.find_iter(content) {
+        let cmd = command.as_str();
+        if pattern_dont.is_match(cmd) {
+            doing = false;
+        } else if pattern_do.is_match(cmd) {
+            doing = true;
+        } else if let Some(caps) = pattern_mult.captures(cmd) {
+            if doing {
+                let a = caps[1].parse::<usize>().unwrap();
+                let b = caps[2].parse::<usize>().unwrap();
+                result += a * b;
+            }
+        }
+    }
+    result
 }
 
 fn main() {
